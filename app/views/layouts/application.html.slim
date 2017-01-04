@@ -5,12 +5,12 @@ html
 
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    / = csrf_meta_tags
+    = csrf_meta_tags
 
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
   body
     - flash.each do |name, msg|
       javascript:
         TheFlashMessage.show("#{name}", "#{msg}");
-      .container
-      = yield
+    .container
+    = yield

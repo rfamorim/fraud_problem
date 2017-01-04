@@ -16,27 +16,4 @@ class Node < ActiveRecord::Base
   belongs_to :network
 
   validates_presence_of :value, :network_id
-
-  def self.set_collision first_node, second_node
-    f_n = self.find_by_value(first_node)
-    s_n = self.find_by_value(second_node)
-
-    if f_n.nil? and s_n.nil?
-      network = Network.create
-
-      self.create(network: network, value: first_node)
-      self.create(network: network, value: second_node)
-
-    elsif f_n.nil?
-      self.create(network: s_n.network, value: first_node)
-
-    elsif s_n.nil?
-      self.create(network: f_n.network, value: second_node)
-
-    else
-      return false
-    end
-
-    true
-  end
 end

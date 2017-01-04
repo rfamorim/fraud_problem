@@ -33,7 +33,7 @@ RSpec.describe Network, type: :model do
     context 'with two nonexistent nodes' do
       it 'should create one network' do
         expect {
-          Node.set_collision("1", "2")
+          FactoryGirl.create(:collision)
         }.to change {
           Network.count
         }.from(0).to(1)
@@ -43,12 +43,12 @@ RSpec.describe Network, type: :model do
     context 'with one nonexistent nodes' do
       before(:each) do
         @network = Network.create
-        @node = Node.create(network: @network, value: "1")
+        @node = Node.create(network: @network, value: "0")
       end
 
       it 'should not create a new network' do
         expect {
-          Node.set_collision(@node.value, "0")
+          FactoryGirl.create(:collision, first_node: "0")
         }.not_to change {
           Network.count
         }
@@ -64,7 +64,7 @@ RSpec.describe Network, type: :model do
 
       it 'should not create a new network' do
         expect {
-          Node.set_collision("1", "2")
+          FactoryGirl.create(:collision, first_node: "1", second_node: "2")
         }.not_to change {
           Network.count
         }
