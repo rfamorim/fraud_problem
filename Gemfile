@@ -71,6 +71,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'slim-rails'
 gem 'formtastic'
+gem 'metamagic'
 
 gem 'paperclip'
 gem 'paperclip-compression'
