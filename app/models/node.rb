@@ -32,6 +32,11 @@ class Node < ActiveRecord::Base
 
     elsif s_n.nil?
       self.create(network: f_n.network, value: second_node)
+
+    else
+      return false
     end
+
+    true
   end
 end

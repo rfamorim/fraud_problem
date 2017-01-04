@@ -36,4 +36,48 @@ RSpec.describe Node, type: :model do
       should validate_presence_of attr
     end
   end
+
+  # TESTING SET COLLISION
+  describe 'when the set_collision method is called' do
+    context 'with two nonexistent nodes' do
+      it 'should create two nodes' do
+        expect {
+          Node.set_collision("1", "2")
+        }.to change {
+          Node.count
+        }.from(0).to(2)
+      end
+    end
+
+    context 'with one nonexistent nodes' do
+      before(:each) do
+        @network = Network.create
+        @node = Node.create(network: @network, value: "1")
+      end
+
+      it 'should create one node' do
+        expect {
+          Node.set_collision(@node.value, "0")
+        }.to change {
+          Node.count
+        }.from(1).to(2)
+      end
+    end
+
+    context 'with two existent nodes' do
+      before(:each) do
+        @network = Network.create
+        @node1 = Node.create(network: @network, value: "1")
+        @node2 = Node.create(network: @network, value: "2")
+      end
+
+      it 'should not create a new node' do
+        expect {
+          Node.set_collision("1", "2")
+        }.not_to change {
+          Node.count
+        }
+      end
+    end
+  end
 end

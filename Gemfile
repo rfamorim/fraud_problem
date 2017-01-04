@@ -79,4 +79,6 @@ gem 'paperclip-meta'
 gem 'puma'
 gem 'activerecord-session_store'
 
+gem 'docx'
+
 ruby '2.2.3'

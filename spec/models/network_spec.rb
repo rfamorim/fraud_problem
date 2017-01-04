@@ -27,4 +27,48 @@ RSpec.describe Network, type: :model do
       should have_many(attr).dependent(:destroy)
     end
   end
+
+  # TESTING SET COLLISION
+  describe 'when the Node.set_collision method is called' do
+    context 'with two nonexistent nodes' do
+      it 'should create one network' do
+        expect {
+          Node.set_collision("1", "2")
+        }.to change {
+          Network.count
+        }.from(0).to(1)
+      end
+    end
+
+    context 'with one nonexistent nodes' do
+      before(:each) do
+        @network = Network.create
+        @node = Node.create(network: @network, value: "1")
+      end
+
+      it 'should not create a new network' do
+        expect {
+          Node.set_collision(@node.value, "0")
+        }.not_to change {
+          Network.count
+        }
+      end
+    end
+
+    context 'with two existent nodes' do
+      before(:each) do
+        @network = Network.create
+        @node1 = Node.create(network: @network, value: "1")
+        @node2 = Node.create(network: @network, value: "2")
+      end
+
+      it 'should not create a new network' do
+        expect {
+          Node.set_collision("1", "2")
+        }.not_to change {
+          Network.count
+        }
+      end
+    end
+  end
 end
