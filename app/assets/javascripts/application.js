@@ -12,5 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require externals/bootstrap_and_overrides
