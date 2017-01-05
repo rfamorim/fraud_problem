@@ -31,4 +31,18 @@ RSpec.describe CollisionsFile, type: :model do
       should validate_presence_of attr
     end
   end
+
+  # TESTING GET COLLISIONS
+  describe 'when a collisions_file is uploaded' do
+    before(:each) do
+      @collisions_file = FactoryGirl.create(:collisions_file, file_contents: "1 2\n2 3\n1 4\n5 6\n6 7\n")
+    end
+
+    it 'should set the right collisions' do
+      expect(CollisionsFile.count).to eq(1)
+      expect(Collision.count).to eq(5)
+      expect(Node.count).to eq(7)
+      expect(Network.count).to eq(2)
+    end
+  end
 end

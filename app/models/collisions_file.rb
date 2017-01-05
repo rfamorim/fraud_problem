@@ -31,7 +31,7 @@ class CollisionsFile < ActiveRecord::Base
 
   before_validation :set_upload_time, if: -> { self.upload_time.nil? }
 
-  after_validation :get_collisions
+  after_validation :get_collisions, if: -> { self.file_contents.present? }
 
   private
     def set_upload_time
