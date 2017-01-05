@@ -7,9 +7,11 @@ class NodesController < ApplicationController
 
   private
     def set_collection
-      @first_node = Node.find_by_value(params[:first_node])
-      @second_node = Node.find_by_value(params[:second_node])
+      if params[:first_node].present? and params[:second_node].present?
+        @first_node = Node.find_by_value(params[:first_node])
+        @second_node = Node.find_by_value(params[:second_node])
 
-      [@first_node, @second_node]
+        [@first_node, @second_node]
+      end
     end
 end
