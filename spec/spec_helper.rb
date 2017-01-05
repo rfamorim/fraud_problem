@@ -19,7 +19,6 @@
 
 require 'factory_girl'
 require 'shoulda-matchers'
-require 'paperclip/matchers'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
