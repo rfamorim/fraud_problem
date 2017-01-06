@@ -1,0 +1,21 @@
+@import "config/settings"
+
+.collision-form
+  li
+    list-style-type: none
+    margin: 10px 0px
+
+    label
+      @extend .text-big
+      color: $color-violet
+
+    input
+      border-style: solid
+      border-width: 1px
+      border-color: $color-violet
+
+  div
+    margin-top: 20px
+
+.collisions-file-form
+  @extend .collision-form

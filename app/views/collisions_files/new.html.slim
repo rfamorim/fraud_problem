@@ -1,3 +1,6 @@
-= semantic_form_for @collisions_file do |f|
-  = f.file_field :original_file
-  = f.submit "Enviar arquivo"
+.collisions-file-form
+  = semantic_form_for @collisions_file do |f|
+    = f.file_field :original_file
+
+    div
+      = f.submit "Enviar arquivo", class: "button-medium"
