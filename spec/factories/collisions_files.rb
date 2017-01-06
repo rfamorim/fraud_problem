@@ -18,5 +18,9 @@ FactoryGirl.define do
     content_type "text/plain"
     file_contents "1 2\n2 3\n1 4\n5 6\n6 7\n"
     upload_time Time.zone.now
+
+    factory :collisions_file_controller do
+      original_file { File.open("#{Rails.root}/spec/fixtures/teste.txt") }
+    end
   end
 end

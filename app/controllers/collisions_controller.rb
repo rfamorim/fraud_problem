@@ -10,7 +10,7 @@ class CollisionsController < ApplicationController
       flash[:sucess] = "Colisão adicionada com sucesso."
       redirect_to new_collision_path
     else
-      flash[:error] = "Colisão já existente."
+      flash[:error] = "Nodes já cadastrados no sistema."
       render :new
     end
   end

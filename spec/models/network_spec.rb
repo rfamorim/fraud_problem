@@ -60,14 +60,14 @@ RSpec.describe Network, type: :model do
         @network = Network.create
         @node1 = Node.create(network: @network, value: "1")
         @node2 = Node.create(network: @network, value: "2")
+
+        @before_count = Network.count
+        @new_collision = FactoryGirl.build(:collision, first_node: "1", second_node: "2")
       end
 
       it 'should not create a new network' do
-        expect {
-          FactoryGirl.create(:collision, first_node: "1", second_node: "2")
-        }.not_to change {
-          Network.count
-        }
+        expect(@new_collision.save).to eq(false)
+        expect(Network.count).to eq(@before_count)
       end
     end
   end

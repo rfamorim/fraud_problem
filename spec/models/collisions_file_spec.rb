@@ -32,6 +32,21 @@ RSpec.describe CollisionsFile, type: :model do
     end
   end
 
+  # TESTING SET UPLOAD TIME
+  describe 'when a collisions_file is created without an upload_time' do
+    before(:each) do
+      @collisions_file = FactoryGirl.build(:collisions_file, upload_time: nil)
+    end
+
+    it 'should set an upload_time automatically' do
+      expect {
+        @collisions_file.save
+      }.to change {
+        @collisions_file.upload_time
+      }.from(nil)
+    end
+  end
+
   # TESTING GET COLLISIONS
   describe 'when a collisions_file is uploaded' do
     before(:each) do
