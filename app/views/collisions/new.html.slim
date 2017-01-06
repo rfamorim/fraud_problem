@@ -1,7 +1,7 @@
 .collision-form
   = semantic_form_for @collision do |f|
-    = f.input :first_node, label: "Primeiro Node:", required: false
-    = f.input :second_node, label: "Segundo Node:", required: false
+    = f.input :first_node, label: "Primeiro Node:", required: false, placeholder: 'Insira um node aqui'
+    = f.input :second_node, label: "Segundo Node:", required: false, placeholder: 'Insira um node aqui'
 
     div
       = f.submit "Enviar colisão", class: "button-medium"

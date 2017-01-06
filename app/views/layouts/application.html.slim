@@ -12,8 +12,16 @@ html
     - flash.each do |name, msg|
       javascript:
         TheFlashMessage.show("#{name}", "#{msg}");
-    .container.form-content
-      .row
-        .col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
-          .form-centered
-            = yield
+    - if request.env['PATH_INFO'] == root_path
+      .container.form-content
+        .row
+          .col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
+            .form-centered
+              = yield
+    - else
+      = render "partials/nav_bar"
+      .container.form-content
+        .row
+          .col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
+            .form-centered
+              = yield

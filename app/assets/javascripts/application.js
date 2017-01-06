@@ -13,3 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require externals/bootstrap_and_overrides
+//= require shared/the_flash_message
+//= require shared/loading

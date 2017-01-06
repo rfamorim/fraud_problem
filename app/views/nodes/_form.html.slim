@@ -1,0 +1,11 @@
+form
+  li
+    label Primeiro Node:
+    input type="text" name="first_node" placeholder="Insira um node aqui" value="#{params[:first_node].blank? ? nil : params[:first_node]}"
+
+  li
+    label Segundo Node:
+    input type="text" name="second_node" placeholder="Insira um node aqui" value="#{params[:second_node].blank? ? nil : params[:second_node]}"
+
+  li
+    = button_to 'Verificar redes', nodes_path, method: :get, class: "button-medium"

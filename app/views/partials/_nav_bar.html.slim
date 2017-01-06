@@ -1,0 +1,8 @@
+nav.navbar.navbar-default
+  .container
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li= link_to "Página Inicial", root_path
+        li= link_to "Enviar arquivo", new_collisions_file_path, class: ('active' if request.path.include? new_collisions_file_path)
+        li= link_to "Cadastrar nova colisão", new_collision_path, class: ('active' if request.path.include? new_collision_path)
+        li= link_to "Verificar rede", nodes_path, class: ('active' if request.path.include? nodes_path)

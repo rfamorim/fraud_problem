@@ -1,15 +1,5 @@
 .nodes-index-form
-  form
-    li
-      label Primeiro Node:
-      input type="text" name="first_node" placeholder="#{params[:first_node].blank? ? 'Insira um node aqui' : params[:first_node]}" value="#{params[:first_node].blank? ? nil : params[:first_node]}"
-
-    li
-      label Segundo Node:
-      input type="text" name="second_node" placeholder="#{params[:second_node].blank? ? 'Insira um node aqui' : params[:second_node]}" value="#{params[:second_node].blank? ? nil : params[:second_node]}"
-
-    li
-      = button_to 'Verificar redes', nodes_path, method: :get, class: "button-medium"
+  = render "form"  
 
   - if @nodes.present?
     hr

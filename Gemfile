@@ -67,6 +67,7 @@ end
 
 gem 'paranoia'
 
+gem 'bourbon'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'slim-rails'
@@ -74,6 +75,5 @@ gem 'formtastic'
 gem 'metamagic'
 
 gem 'puma'
-gem 'activerecord-session_store'
 
 ruby '2.2.3'
