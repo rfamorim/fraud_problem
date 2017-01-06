@@ -31,6 +31,11 @@ class Collision < ActiveRecord::Base
 
       elsif s_n.nil?
         Node.create(network: f_n.network, value: self.second_node)
+
+      else
+        return false
       end
+
+      true
     end
 end

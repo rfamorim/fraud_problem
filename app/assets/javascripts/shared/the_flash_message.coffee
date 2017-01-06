@@ -1,3 +1,5 @@
+# Done by Inventos Digitais Ltda. and changed by Rodrigo F. Amorim
+
 class TheFlashMessage
   message: $('.the-flash-message')
   fadeOut: 5000

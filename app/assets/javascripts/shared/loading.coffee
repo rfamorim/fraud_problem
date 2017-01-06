@@ -1,3 +1,5 @@
+# Done by Inventos Digitais Ltda. and changed by Rodrigo F. Amorim
+
 #= require spin.min
 
 class Loading

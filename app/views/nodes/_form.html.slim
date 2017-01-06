@@ -8,4 +8,4 @@ form
     input type="text" name="second_node" placeholder="Insira um node aqui" value="#{params[:second_node].blank? ? nil : params[:second_node]}"
 
   li
-    = button_to 'Verificar redes', nodes_path, method: :get, class: "button-medium"
+    = button_to 'Verificar redes', nodes_path, method: :get, class: "button-medium", onclick: "Loading.start_loading();"

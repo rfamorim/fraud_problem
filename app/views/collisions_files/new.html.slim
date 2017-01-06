@@ -3,4 +3,4 @@
     = f.file_field :original_file, class: "file-field-input"
 
     div
-      = f.submit "Enviar arquivo", class: "button-medium"
+      = f.submit "Enviar arquivo", class: "button-medium", onclick: "Loading.start_loading();"
