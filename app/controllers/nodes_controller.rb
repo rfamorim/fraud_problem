@@ -11,7 +11,7 @@ class NodesController < ApplicationController
         @first_node = Node.find_by_value(params[:first_node])
         @second_node = Node.find_by_value(params[:second_node])
 
-        [@first_node, @second_node]
+        @nodes = [@first_node, @second_node]
       end
     end
 end

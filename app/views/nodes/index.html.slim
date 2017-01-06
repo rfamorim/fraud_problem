@@ -1,2 +1,24 @@
-h1 Nodes#index
-p Find me in app/views/nodes/index.html.slim
+.nodes-index-form
+  form
+    li
+      label Primeiro Node:
+      input type="text" name="first_node" placeholder="#{params[:first_node].blank? ? 'Insira um node aqui' : params[:first_node]}" value="#{params[:first_node].blank? ? nil : params[:first_node]}"
+
+    li
+      label Segundo Node:
+      input type="text" name="second_node" placeholder="#{params[:second_node].blank? ? 'Insira um node aqui' : params[:second_node]}" value="#{params[:second_node].blank? ? nil : params[:second_node]}"
+
+    li
+      = button_to 'Verificar redes', nodes_path, method: :get, class: "button-medium"
+
+  - if @nodes.present?
+    hr
+    - if @nodes.compact.blank?
+      span Ambos os nodes inseridos não estão armazenados em nosso banco de dados.
+    - elsif (i = @nodes.index(nil)).present?
+      span= "O node #{i == 0 ? params[:first_node] : params[:second_node]} não está armazenado em nosso banco de dados."
+    - elsif @nodes[0].network_id == @nodes[1].network_id
+      span= "Os nodes #{@nodes[0].value} e #{@nodes[1].value} pertencem a uma mesma Rede de Colisões."
+    - else
+      span= "Os nodes #{@nodes[0].value} e #{@nodes[1].value} não pertencem a uma mesma Rede de Colisões."
+
