@@ -6,3 +6,6 @@ nav.navbar.navbar-default
         li= link_to "Enviar arquivo", new_collisions_file_path, class: ('active' if request.path.include? new_collisions_file_path)
         li= link_to "Cadastrar nova colisão", new_collision_path, class: ('active' if request.path.include? new_collision_path)
         li= link_to "Verificar rede", nodes_path, class: ('active' if request.path.include? nodes_path)
+
+      ul.nav.navbar-nav.navbar-right
+        span Teste feito por Rodrigo F. Amorim
