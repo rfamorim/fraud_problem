@@ -27,11 +27,10 @@ ActiveRecord::Schema.define(version: 20170104213735) do
   create_table "collisions_files", force: :cascade do |t|
     t.string   "filename"
     t.string   "content_type"
-    t.binary   "file_contents"
     t.datetime "upload_time"
     t.datetime "deleted_at"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "networks", force: :cascade do |t|

@@ -1,4 +1,14 @@
 .collisions-file-form
+  .extensions-info
+    span.available-extensions Extensões possíveis: 
+
+    - extensions = [".docx", ".doc", ".txt", ".rtf"]
+
+    - extensions.each_with_index do |ext, i|
+      span.available-extensions.name= "#{ext}"
+      - unless i == extensions.count - 1
+        span.available-extensions= " , "
+
   = semantic_form_for @collisions_file do |f|
     = f.file_field :original_file, class: "file-field-input"
 

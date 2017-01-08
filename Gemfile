@@ -64,6 +64,7 @@ group :production do
 end
 
 gem 'paranoia'
+gem 'docx'
 
 gem 'bourbon'
 gem 'bootstrap-sass'

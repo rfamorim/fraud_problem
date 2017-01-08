@@ -2,14 +2,13 @@
 #
 # Table name: collisions_files
 #
-#  id            :integer          not null, primary key
-#  filename      :string
-#  content_type  :string
-#  file_contents :binary
-#  upload_time   :datetime
-#  deleted_at    :datetime
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id           :integer          not null, primary key
+#  filename     :string
+#  content_type :string
+#  upload_time  :datetime
+#  deleted_at   :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'rails_helper'
@@ -19,14 +18,14 @@ RSpec.describe CollisionsFile, type: :model do
   let(:collisions_file) { FactoryGirl.build(:collisions_file) }
 
   # RESPOND TO
-  [:filename, :content_type, :file_contents, :upload_time, :deleted_at].each do |attr|
+  [:filename, :content_type, :upload_time, :deleted_at].each do |attr|
     it "should respond to #{attr}" do
       should respond_to attr
     end
   end
 
   # PRESENCE
-  [:filename, :content_type, :file_contents].each do |attr|
+  [:filename, :content_type].each do |attr|
     it "should validate the presence of #{attr}" do
       should validate_presence_of attr
     end
@@ -50,7 +49,9 @@ RSpec.describe CollisionsFile, type: :model do
   # TESTING GET COLLISIONS
   describe 'when a collisions_file is uploaded' do
     before(:each) do
-      @collisions_file = FactoryGirl.create(:collisions_file, file_contents: "1 2\n2 3\n1 4\n5 6\n6 7\n")
+      @original_file = fixture_file_upload("teste.txt", 'text/plain')
+
+      @collisions_file = CollisionsFile.create(original_file: @original_file)
     end
 
     it 'should set the right collisions' do

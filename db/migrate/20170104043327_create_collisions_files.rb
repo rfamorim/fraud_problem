@@ -3,7 +3,6 @@ class CreateCollisionsFiles < ActiveRecord::Migration
     create_table :collisions_files do |t|
       t.string :filename
       t.string :content_type
-      t.binary :file_contents
       t.datetime :upload_time
       t.datetime :deleted_at
 
