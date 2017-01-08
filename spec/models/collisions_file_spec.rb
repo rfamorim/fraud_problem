@@ -47,11 +47,18 @@ RSpec.describe CollisionsFile, type: :model do
   end
 
   # TESTING GET COLLISIONS
+  def original_file
+    extend ActionDispatch::TestProcess
+    o_f = fixture_file_upload("teste.txt", 'text/plain')
+
+    {
+      original_file: o_f
+    }
+  end
+
   describe 'when a collisions_file is uploaded' do
     before(:each) do
-      @original_file = fixture_file_upload("teste.txt", 'text/plain')
-
-      @collisions_file = CollisionsFile.create(original_file: @original_file)
+      @collisions_file = CollisionsFile.create(original_file)
     end
 
     it 'should set the right collisions' do
